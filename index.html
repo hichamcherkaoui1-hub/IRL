@@ -1,0 +1,1214 @@
+<title>IRL Assessment — TESP/UM6P</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --navy:#0F2A4A; --navy-d:#081A30; --navy-l:#EDF1F6;
+  --gold:#B8933D; --gold-l:#FBF6EA; --gold-b:#E7D3A0;
+  --dark:#15202B; --mid:#5B6B7A; --mid-l:#93A2AF;
+  --light:#F6F7F9; --light2:#EEF1F4; --border:#DFE4EA; --white:#FFFFFF;
+  --oui:#166534; --oui-l:#F0FDF4; --oui-b:#86EFAC;
+  --partiel:#92400E; --partiel-l:#FFFBEB; --partiel-b:#FCD34D;
+  --non:#991B1B; --non-l:#FEF2F2; --non-b:#FCA5A5;
+  --shadow-sm:0 1px 3px rgba(15,42,74,.08),0 1px 2px rgba(15,42,74,.05);
+  --shadow-md:0 4px 14px rgba(15,42,74,.10);
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--light);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--dark);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+input,textarea,select,button{font-family:inherit;font-size:13px}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--navy)!important;box-shadow:0 0 0 3px rgba(15,42,74,.1)!important}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 20px 80px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.logo{width:34px;height:34px;border-radius:8px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+h1{font-size:19px;font-weight:700;color:var(--navy-d)}
+.sub{font-size:12px;color:var(--mid);margin-top:1px}
+.deadline{margin:14px 0 22px;padding:10px 14px;background:var(--gold-l);border:1px solid var(--gold-b);border-radius:var(--r-md);font-size:12.5px;color:#5C4718;display:flex;gap:8px;align-items:flex-start}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:20px;margin-bottom:18px}
+.card h2{font-size:14px;font-weight:700;color:var(--navy-d);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h2 .n{width:20px;height:20px;border-radius:5px;background:var(--navy-l);color:var(--navy);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center}
+label{display:block;font-size:11.5px;font-weight:600;color:var(--mid);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.03em}
+label:first-child{margin-top:0}
+input[type=text],input[type=password],textarea,select{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--white);color:var(--dark)}
+textarea{resize:vertical;min-height:110px;line-height:1.5}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.hint{font-size:11px;color:var(--mid-l);margin-top:4px}
+button{cursor:pointer;border:none;border-radius:var(--r-sm);padding:10px 18px;font-weight:600;font-size:13px;transition:opacity .15s}
+button:disabled{opacity:.5;cursor:not-allowed}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover:not(:disabled){opacity:.9}
+.btn-ghost{background:var(--light2);color:var(--dark)}
+.btn-ghost:hover:not(:disabled){background:var(--border)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover:not(:disabled){opacity:.9}
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.err{background:var(--non-l);border:1px solid var(--non-b);color:var(--non);padding:10px 13px;border-radius:var(--r-sm);font-size:12.5px;margin-top:12px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--navy-d);color:#fff;padding:10px 18px;border-radius:var(--r-md);font-size:12.5px;box-shadow:var(--shadow-md);z-index:999}
+.progress{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.progress .row-p{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mid)}
+.progress .dot{width:8px;height:8px;border-radius:50%;background:var(--border);flex-shrink:0}
+.progress .row-p.done .dot{background:var(--oui)}
+.progress .row-p.active .dot{background:var(--gold)}
+.progress .row-p.err .dot{background:var(--non)}
+
+.dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dim-card{border:1px solid var(--border);border-radius:var(--r-md);padding:14px;background:var(--light)}
+.dim-card .dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.dim-card .dtitle{font-weight:700;font-size:13px;color:var(--navy-d)}
+.badge{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.02em}
+.badge.Oui{background:var(--oui-l);color:var(--oui);border:1px solid var(--oui-b)}
+.badge.Partiel{background:var(--partiel-l);color:var(--partiel);border:1px solid var(--partiel-b)}
+.badge.Non{background:var(--non-l);color:var(--non);border:1px solid var(--non-b)}
+.crit{border-top:1px solid var(--border);padding:8px 0;font-size:12.5px}
+.crit:first-child{border-top:none;padding-top:0}
+.crit .ch{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:3px}
+.crit .cname{font-weight:600;color:var(--dark)}
+.crit .cproof{color:var(--mid);font-size:12px}
+.crit .cconf{font-size:10.5px;color:var(--mid-l)}
+.crl-pill{display:inline-block;background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:8px}
+
+.gate-card{background:var(--navy-d);color:#fff;border-radius:var(--r-lg);padding:22px;margin-bottom:18px}
+.gate-card h2{color:#fff;margin-bottom:14px}
+.gate-score{font-size:34px;font-weight:800;color:var(--gold)}
+.gate-score span{font-size:15px;color:#C7D2DE;font-weight:500}
+.gate-reco{display:inline-block;margin-top:6px;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700}
+.gate-reco.Pret{background:var(--oui-l);color:var(--oui)}
+.gate-reco.A_completer{background:var(--partiel-l);color:var(--partiel)}
+.gate-reco.Non_pret{background:var(--non-l);color:var(--non)}
+.gate-body{margin-top:14px;font-size:13px;color:#DCE4EC;line-height:1.6}
+.gap-list{margin-top:14px;background:rgba(255,255,255,.06);border-radius:var(--r-md);padding:12px 14px}
+.gap-list h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--gold-b);margin-bottom:8px}
+.gap-item{font-size:12.5px;color:#E5EAF0;padding:4px 0;border-top:1px solid rgba(255,255,255,.08)}
+.gap-item:first-child{border-top:none}
+.alerte{margin-top:12px;background:rgba(184,147,61,.18);border:1px solid rgba(184,147,61,.4);border-radius:var(--r-sm);padding:9px 12px;font-size:12.5px;color:#FBEBC7}
+
+.setup-status{font-size:11.5px;color:var(--mid-l);margin-top:6px}
+details summary{cursor:pointer;font-size:12.5px;color:var(--mid);font-weight:600}
+.footer-note{font-size:11px;color:var(--mid-l);text-align:center;margin-top:24px}
+
+.drop-zone{margin-top:10px;border:1.5px dashed var(--border);border-radius:var(--r-md);padding:16px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;background:var(--light)}
+.drop-zone:hover,.drop-zone.dragover{border-color:var(--navy);background:var(--navy-l)}
+.drop-zone .dz-label{font-size:12.5px;color:var(--mid);font-weight:600}
+.drop-zone .dz-sub{font-size:11px;color:var(--mid-l);margin-top:2px}
+.file-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.file-pill{display:inline-flex;align-items:center;gap:6px;background:var(--navy-l);color:var(--navy-d);border:1px solid var(--gold-b);border-radius:20px;padding:4px 6px 4px 11px;font-size:12px;font-weight:600}
+.file-pill button{background:none;border:none;cursor:pointer;color:var(--mid);font-size:14px;padding:0 3px;font-weight:400}
+.file-pill button:hover{color:var(--non)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="logo">IRL</div>
+    <div>
+      <h1>IRL Assessment — TESP/UM6P</h1>
+      <div class="sub">Évaluation assistée des 5 dimensions non-technologiques — Équipe · Business · IP · Financement · Commercial</div>
+    </div>
+  </header>
+
+  <div class="deadline">
+    ⏱️ <div><strong>Échéance incontournable : 15 octobre 2026.</strong> Batches de 15 jours, premier batch lancé le 07/09/2026 (Corporate Innovation Office, accompagné par LaunchX). Le TRL fait l'objet d'un exercice séparé (ITX Techcell-engineering / TTO UM6P) — non couvert ici.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">0</span> Accès</h2>
+    <div class="row">
+      <div>
+        <label>Mot de passe d'accès (proxy Claude)</label>
+        <input type="password" id="pwd" placeholder="mot de passe partagé">
+      </div>
+      <div>
+        <label>Token d'intégration Notion</label>
+        <input type="password" id="notionToken" placeholder="secret_...">
+      </div>
+    </div>
+    <label>ID base Notion "IRL Assessment"</label>
+    <input type="text" id="notionDbId" placeholder="32 caractères, depuis l'URL de la base">
+    <label>ID base Notion "Registre Projets TRL" (optionnel — pour vérification automatique)</label>
+    <input type="text" id="registreDbId" placeholder="32 caractères, depuis l'URL de la base">
+    <div class="hint">Si renseigné, chaque projet évalué (mode manuel ou lot) est d'abord recherché dans cette base par ID projet CIO (ou nom). S'il existe, ses informations sont utilisées pour l'évaluation et sa page reste liée depuis « IRL Assessment » (propriété « Projet lie (TESP) ») — rien n'est jamais écrit dans le Registre Projets TRL, il n'est que consulté.</div>
+    <div class="setup-status" id="setupStatus">Rien n'est envoyé ailleurs que vers Anthropic (via le proxy) et l'API Notion. Stocké en local uniquement.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">1</span> Projet à évaluer</h2>
+    <div class="row">
+      <div>
+        <label>Nom du projet</label>
+        <input type="text" id="projName" placeholder="ex. FlowX">
+      </div>
+      <div>
+        <label>ID projet CIO (si connu — BDD Innovation UM6P)</label>
+        <input type="text" id="projCio" placeholder="ex. TBD">
+      </div>
+    </div>
+    <label>Dossier / éléments disponibles (description, livrables, preuves — coller le texte)</label>
+    <textarea id="projText" placeholder="Colle ici tout ce qui documente le projet : description, budget, équipe, IP, retours clients, plan de financement, etc. Plus c'est complet, plus les statuts « Oui » seront fiables — sans preuve citable, l'agent répond « Non » par principe."></textarea>
+    <div class="hint">Aucune preuve identifiable dans le texte ⇒ statut « Non » par construction (protocole IRL du 07/09/2026). Colle les extraits utiles plutôt qu'un résumé. Si un « ID base Registre Projets TRL » est renseigné en section Accès, ce projet (par ID CIO, sinon par nom) y est d'abord recherché avant l'évaluation — s'il existe, ses informations du Registre s'ajoutent à ce qui est collé ici.</div>
+
+    <label>Fichiers (facultatif — s'ajoutent au texte collé ci-dessus)</label>
+    <div class="drop-zone" id="dropZone">
+      <div class="dz-label">📎 Glisser des fichiers ici, ou cliquer pour parcourir</div>
+      <div class="dz-sub">PDF, DOCX, XLSX, PPTX, images — Bilan et Plan d'action, présentations, rapports…</div>
+      <input type="file" id="fileInput" multiple style="display:none"
+        accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.png,.jpg,.jpeg,.gif,.webp,image/*,application/pdf">
+    </div>
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button class="btn-primary" id="btnRun">Lancer l'évaluation IRL</button>
+      <button class="btn-ghost" id="btnClear">Effacer</button>
+    </div>
+    <div class="progress" id="progress" style="display:none"></div>
+    <div class="err" id="errBox" style="display:none"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">2</span> Évaluation en lot (BDD Innovation UM6P)</h2>
+    <div class="hint">Dépose la BDD Innovation UM6P (ou tout fichier .xlsx listant des projets, avec des colonnes du type « Nom du projet » / « ID projet CIO » / « Entite » / « SBU sponsor ») : chaque ligne devient un projet. Si un « ID base Registre Projets TRL » est renseigné en section Accès, chaque projet y est d'abord recherché avant l'évaluation (voir ci-dessus) ; sinon l'évaluation se base uniquement sur la ligne BDD. Résultats poussés vers Notion (page « IRL Assessment » recherchée par ID projet CIO, créée si absente).</div>
+    <div class="drop-zone" id="batchDropZone">
+      <div class="dz-label">📊 Glisser le fichier BDD ici, ou cliquer pour parcourir</div>
+      <div class="dz-sub">.xlsx / .xls uniquement</div>
+      <input type="file" id="batchFileInput" style="display:none" accept=".xlsx,.xls">
+    </div>
+    <div class="hint" id="batchFileInfo"></div>
+    <div id="batchTableWrap" style="margin-top:12px"></div>
+    <div class="actions" id="batchControls" style="display:none;align-items:center">
+      <button class="btn-primary" id="btnBatchRun">Lancer le lot</button>
+      <label style="display:flex;align-items:center;gap:6px;text-transform:none;font-weight:500;font-size:12.5px;color:var(--mid);margin:0">
+        <input type="checkbox" id="batchPushNotion" checked style="width:auto"> Pousser automatiquement vers Notion (crée la page si absente)
+      </label>
+    </div>
+    <div id="batchLog" style="display:none;margin-top:12px;max-height:220px;overflow:auto;background:var(--navy-d);color:#DCE4EC;border-radius:var(--r-md);padding:10px 12px;font-family:ui-monospace,Consolas,monospace;font-size:11.5px;line-height:1.6"></div>
+  </div>
+
+  <div id="resultsZone"></div>
+
+  <div class="footer-note">IRL Assessment TESP/UM6P v1 — aide à la décision préparatoire, soumise à validation du Head Innovation avant transmission à LaunchX.</div>
+</div>
+
+<div id="toast" class="toast" style="display:none"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  if (typeof pdfjsLib !== "undefined") {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+</script>
+<script src="memoire-um6p.js"></script>
+<script src="prompts-um6p.js"></script>
+<script src="prompts-irl.js"></script>
+<script src="agents-irl.js"></script>
+<script>
+"use strict";
+var MODEL = "claude-sonnet-4-5-20250929";
+
+var S = {
+  loading: false,
+  error: null,
+  results: null, // {team,biz,ip,fin,com,gate}
+  progressSteps: [],
+  files: [], // {name,type,size,b64,isConverted,text,images}
+  filesConverting: 0,
+  batchProjects: [], // {nom,cio,entite,sbu,raw,selected,status,results,error} — un par ligne détectée
+  registreResult: null // dernier résultat de vérification Registre Projets TRL (mode manuel)
+};
+
+function $(id){ return document.getElementById(id); }
+function showToast(msg){
+  var t = $("toast"); t.textContent = msg; t.style.display = "block";
+  clearTimeout(showToast._h);
+  showToast._h = setTimeout(function(){ t.style.display = "none"; }, 3200);
+}
+
+// ── Persistance locale (mêmes clés/logique que les autres apps TESP/ValorIQ) ──
+function loadLocal(){
+  $("notionToken").value = localStorage.getItem("irl_notion_token") || "";
+  $("notionDbId").value = localStorage.getItem("irl_notion_db_id") || "";
+  $("pwd").value = sessionStorage.getItem("irl_access_pwd") || "";
+  $("registreDbId").value = localStorage.getItem("irl_registre_db_id") || "";
+}
+function saveLocal(){
+  localStorage.setItem("irl_notion_token", $("notionToken").value.trim());
+  localStorage.setItem("irl_notion_db_id", $("notionDbId").value.trim());
+  sessionStorage.setItem("irl_access_pwd", $("pwd").value.trim());
+  localStorage.setItem("irl_registre_db_id", $("registreDbId").value.trim());
+}
+["notionToken","notionDbId","pwd","registreDbId"].forEach(function(id){
+  document.addEventListener("DOMContentLoaded", function(){
+    $(id).addEventListener("change", saveLocal);
+  });
+});
+
+// ── Gestion des fichiers (repris de tesp-orchestrateur : mêmes librairies, même logique) ──
+// XLSX → SheetJS · DOCX → Mammoth · PPTX → JSZip (texte + images) · PDF/image → base64 natif Claude
+// (PDF volumineux : texte extrait côté navigateur via pdf.js pour éviter les timeouts proxy)
+var _sheetjsLoaded = false, _mammothLoaded = false, _jszipLoaded = false;
+function loadSheetJS(cb){
+  if (_sheetjsLoaded) { cb(); return; }
+  var s = document.createElement("script");
+  s.src = "https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js";
+  s.onload = function(){ _sheetjsLoaded = true; cb(); };
+  s.onerror = function(){ showToast("⚠ SheetJS non disponible"); };
+  document.head.appendChild(s);
+}
+function loadMammoth(cb){
+  if (_mammothLoaded) { cb(); return; }
+  var s = document.createElement("script");
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js";
+  s.onload = function(){ _mammothLoaded = true; cb(); };
+  s.onerror = function(){ showToast("⚠ Mammoth non disponible"); };
+  document.head.appendChild(s);
+}
+function loadJSZip(cb){
+  if (_jszipLoaded && window.JSZip) { cb(); return; }
+  if (window.JSZip) { _jszipLoaded = true; cb(); return; }
+  var s = document.createElement("script");
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
+  s.onload = function(){ _jszipLoaded = true; cb(); };
+  s.onerror = function(){ showToast("⚠ JSZip non disponible (PPTX)"); };
+  document.head.appendChild(s);
+}
+function addFilePill(name, icon, idx){
+  var fl = $("fileList"); if (!fl) return;
+  var pill = document.createElement("span");
+  pill.className = "file-pill";
+  pill.innerHTML = icon + " " + escapeHtml(name) + ' <button type="button" data-idx="' + idx + '">×</button>';
+  pill.querySelector("button").addEventListener("click", function(){ removeFile(idx); });
+  fl.appendChild(pill);
+}
+function removeFile(i){ S.files.splice(i, 1); renderFileList(); }
+function renderFileList(){
+  var fl = $("fileList"); if (!fl) return;
+  fl.innerHTML = "";
+  S.files.forEach(function(f, i){
+    var icon = f.isConverted ? (f.images ? "📊" : (f.name.match(/\.docx?$/i) ? "📝" : "📊")) : (f.name.match(/\.pdf$/i) ? "📄" : "🖼");
+    addFilePill(f.name, icon, i);
+  });
+}
+function handleFiles(fileListArg){
+  if (!fileListArg || !fileListArg.length) return;
+  var files = Array.from(fileListArg);
+  files.forEach(function(f){
+    var name = f.name.toLowerCase();
+    if (name.match(/\.xlsx?$/i)) {
+      S.filesConverting++;
+      loadSheetJS(function(){
+        var reader = new FileReader();
+        reader.onload = function(e){
+          try {
+            var wb = XLSX.read(e.target.result, { type: "array" });
+            var allText = "[FICHIER EXCEL: " + f.name + "]\n\n";
+            var totalRows = 0;
+            wb.SheetNames.forEach(function(sname){
+              var ws = wb.Sheets[sname];
+              var json = XLSX.utils.sheet_to_json(ws, { defval: "" });
+              totalRows += json.length;
+              if (json.length > 0 && json.length <= 200) {
+                allText += "=== " + sname + " ===\n";
+                json.forEach(function(row, i){
+                  var parts = Object.entries(row).filter(function(kv){ return kv[1] !== ""; })
+                    .map(function(kv){ return kv[0] + ": " + String(kv[1]).substring(0, 100); });
+                  allText += "Ligne " + (i + 1) + " — " + parts.join(" | ") + "\n";
+                });
+                allText += "\n";
+              } else {
+                allText += XLSX.utils.sheet_to_csv(wb.Sheets[sname]) + "\n";
+              }
+            });
+            S.files.push({ name: f.name, type: "text/plain", size: f.size, text: allText, b64: null, isConverted: true });
+            S.filesConverting = Math.max(0, S.filesConverting - 1);
+            renderFileList();
+            showToast("📊 " + f.name + " — " + totalRows + " lignes extraites");
+          } catch (err) {
+            S.filesConverting = Math.max(0, S.filesConverting - 1);
+            showToast("⚠ Excel: " + err.message);
+          }
+        };
+        reader.onerror = function(){ S.filesConverting = Math.max(0, S.filesConverting - 1); showToast("⚠ Erreur lecture: " + f.name); };
+        reader.readAsArrayBuffer(f);
+      });
+    } else if (name.match(/\.docx$/i)) {
+      S.filesConverting++;
+      loadMammoth(function(){
+        var reader = new FileReader();
+        reader.onload = function(e){
+          mammoth.extractRawText({ arrayBuffer: e.target.result }).then(function(result){
+            var text = "[FICHIER WORD: " + f.name + "]\n\n" + result.value;
+            S.files.push({ name: f.name, type: "text/plain", size: f.size, text: text, b64: null, isConverted: true });
+            S.filesConverting = Math.max(0, S.filesConverting - 1);
+            renderFileList();
+            showToast("📝 " + f.name + " — " + result.value.length + " caractères extraits");
+          }).catch(function(err){
+            S.filesConverting = Math.max(0, S.filesConverting - 1);
+            showToast("⚠ DOCX: " + err.message);
+          });
+        };
+        reader.onerror = function(){ S.filesConverting = Math.max(0, S.filesConverting - 1); showToast("⚠ Erreur lecture: " + f.name); };
+        reader.readAsArrayBuffer(f);
+      });
+    } else if (name.match(/\.pptx$/i)) {
+      S.filesConverting++;
+      loadJSZip(function(){
+        if (!window.JSZip) { S.filesConverting = Math.max(0, S.filesConverting - 1); showToast("⚠ JSZip indisponible — PPTX non converti"); return; }
+        var reader = new FileReader();
+        reader.onload = function(e){
+          window.JSZip.loadAsync(e.target.result).then(function(zip){
+            var slideFiles = [], noteFiles = [], imageFiles = [];
+            zip.forEach(function(path){
+              if (/^ppt\/slides\/slide\d+\.xml$/i.test(path)) slideFiles.push(path);
+              else if (/^ppt\/notesSlides\/notesSlide\d+\.xml$/i.test(path)) noteFiles.push(path);
+              else if (/^ppt\/media\/.+\.(png|jpe?g|gif|webp)$/i.test(path)) imageFiles.push(path);
+            });
+            function numOf(p){ var m = p.match(/(\d+)\.xml$/); return m ? parseInt(m[1], 10) : 0; }
+            slideFiles.sort(function(a, b){ return numOf(a) - numOf(b); });
+            noteFiles.sort(function(a, b){ return numOf(a) - numOf(b); });
+            function xmlText(xml){
+              var out = [], re = /<a:t[^>]*>([\s\S]*?)<\/a:t>/g, m;
+              while ((m = re.exec(xml)) !== null) {
+                var t = m[1].replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'");
+                if (t.trim()) out.push(t);
+              }
+              return out.join(" ");
+            }
+            var promises = [];
+            slideFiles.forEach(function(path, idx){
+              promises.push(zip.file(path).async("string").then(function(xml){ return { kind: "slide", idx: idx + 1, text: xmlText(xml) }; }));
+            });
+            noteFiles.forEach(function(path){
+              var n = numOf(path);
+              promises.push(zip.file(path).async("string").then(function(xml){ return { kind: "note", idx: n, text: xmlText(xml) }; }));
+            });
+            var maxImages = 8;
+            imageFiles.slice(0, maxImages).forEach(function(path){
+              promises.push(zip.file(path).async("base64").then(function(b64){
+                var ext = path.split(".").pop().toLowerCase();
+                var mt = ext === "png" ? "image/png" : ext === "gif" ? "image/gif" : ext === "webp" ? "image/webp" : "image/jpeg";
+                return { kind: "image", mediaType: mt, b64: b64, path: path };
+              }));
+            });
+            Promise.all(promises).then(function(results){
+              var slides = results.filter(function(r){ return r.kind === "slide"; }).sort(function(a, b){ return a.idx - b.idx; });
+              var notes = {}; results.filter(function(r){ return r.kind === "note"; }).forEach(function(n){ notes[n.idx] = n.text; });
+              var images = results.filter(function(r){ return r.kind === "image"; });
+              var allText = "[FICHIER POWERPOINT: " + f.name + "]\n(" + slides.length + " slides, " + images.length + " images extraites)\n\n";
+              slides.forEach(function(s){
+                allText += "=== Slide " + s.idx + " ===\n" + (s.text || "(pas de texte)");
+                if (notes[s.idx]) allText += "\n[Notes du présentateur] " + notes[s.idx];
+                allText += "\n\n";
+              });
+              S.files.push({ name: f.name, type: "text/plain", size: f.size, text: allText, images: images, b64: null, isConverted: true });
+              S.filesConverting = Math.max(0, S.filesConverting - 1);
+              renderFileList();
+              var msg = "📊 " + f.name + " — " + slides.length + " slides";
+              if (images.length) msg += " + " + images.length + " images";
+              showToast(msg);
+            }).catch(function(err){ S.filesConverting = Math.max(0, S.filesConverting - 1); showToast("⚠ PPTX: " + err.message); });
+          }).catch(function(err){ S.filesConverting = Math.max(0, S.filesConverting - 1); showToast("⚠ PPTX corrompu: " + err.message); });
+        };
+        reader.onerror = function(){ S.filesConverting = Math.max(0, S.filesConverting - 1); showToast("⚠ Erreur lecture: " + f.name); };
+        reader.readAsArrayBuffer(f);
+      });
+    } else if (name.match(/\.(doc|ppt)$/i)) {
+      var ext = name.match(/\.(doc|ppt)$/i)[1].toUpperCase();
+      var newExt = ext === "DOC" ? ".docx" : ".pptx";
+      showToast("⚠ Format " + ext + " obsolète — convertir en " + newExt + " (ou PDF) puis réessayer");
+    } else if (name.match(/\.(pdf|png|jpe?g|gif|webp)$/i)) {
+      var reader = new FileReader();
+      reader.onload = function(e){
+        var result = e.target.result;
+        var b64 = result.indexOf(",") > -1 ? result.split(",")[1] : result;
+        S.files.push({ name: f.name, type: f.type || (name.endsWith(".pdf") ? "application/pdf" : "image/jpeg"), size: f.size, b64: b64, isConverted: false });
+        renderFileList();
+        if (f.size > 5 * 1024 * 1024) showToast("📄 " + f.name + " prêt (" + Math.round(f.size / 1024 / 1024) + "MB)");
+      };
+      reader.onerror = function(){ showToast("⚠ Erreur: " + f.name); };
+      reader.readAsDataURL(f);
+    } else {
+      showToast("⚠ Format non supporté: " + f.name + " (PDF, DOCX, XLSX, PPTX ou image uniquement)");
+    }
+  });
+}
+
+// Seuil : au-delà de 3 MB en base64 (~2.25 MB de PDF brut), on extrait le texte côté navigateur
+var PDF_B64_MAX = 3 * 1024 * 1024;
+async function extractPdfTextFromB64(b64, fileName){
+  if (typeof pdfjsLib === "undefined") throw new Error("PDF.js non chargé (vérifier connexion CDN)");
+  var raw = atob(b64);
+  var bytes = new Uint8Array(raw.length);
+  for (var i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+  var pdf = await pdfjsLib.getDocument({ data: bytes }).promise;
+  var allText = [];
+  var maxPages = Math.min(pdf.numPages, 200);
+  for (var p = 1; p <= maxPages; p++) {
+    var page = await pdf.getPage(p);
+    var content = await page.getTextContent();
+    var pageText = content.items.map(function(it){ return it.str; }).join(" ");
+    if (pageText.trim()) allText.push("--- Page " + p + " ---\n" + pageText);
+  }
+  if (pdf.numPages > 200) allText.push("\n[Note: PDF tronqué à 200 pages — original " + pdf.numPages + " pages]");
+  return "[FICHIER PDF: " + (fileName || "document.pdf") + " — texte extrait]\n\n" + allText.join("\n\n");
+}
+
+// ── Appel Claude via le proxy Vercel (streaming SSE), parsing JSON robuste ──
+// Repris du pattern éprouvé de tesp-orchestrateur (api/claude.js identique).
+async function callAI(sys, text, files, maxTok){
+  var mt = Math.min(maxTok || 3000, 8000);
+  var pwd = sessionStorage.getItem("irl_access_pwd") || "";
+  var parts = [];
+  var convertedTexts = [];
+  if (files && files.length) {
+    for (var i = 0; i < files.length; i++) {
+      var f = files[i];
+      if (f.isConverted && f.text) {
+        convertedTexts.push(f.text);
+        if (f.images && f.images.length) {
+          for (var j = 0; j < f.images.length; j++) {
+            var img = f.images[j];
+            parts.push({ type: "image", source: { type: "base64", media_type: img.mediaType, data: img.b64 } });
+          }
+        }
+      } else if (f.b64) {
+        var fname = (f.name || "").toLowerCase();
+        var ftype = f.type || "";
+        if (fname.endsWith(".pdf") || ftype.indexOf("pdf") > -1) {
+          if (f.b64.length > PDF_B64_MAX) {
+            try {
+              var extractedText = await extractPdfTextFromB64(f.b64, f.name);
+              convertedTexts.push(extractedText);
+            } catch (pdfErr) {
+              parts.push({ type: "document", source: { type: "base64", media_type: "application/pdf", data: f.b64 } });
+            }
+          } else {
+            parts.push({ type: "document", source: { type: "base64", media_type: "application/pdf", data: f.b64 } });
+          }
+        } else if (ftype.indexOf("image") > -1 || fname.match(/\.(png|jpe?g|gif|webp)$/)) {
+          var imgType = ftype.indexOf("image") > -1 ? ftype :
+            (fname.endsWith(".png") ? "image/png" : fname.match(/\.jpe?g$/) ? "image/jpeg" : fname.endsWith(".gif") ? "image/gif" : "image/webp");
+          parts.push({ type: "image", source: { type: "base64", media_type: imgType, data: f.b64 } });
+        }
+      }
+    }
+  }
+  var fullText = text + (convertedTexts.length ? "\n\n=== DOCUMENTS JOINTS (texte extrait) ===\n" + convertedTexts.join("\n\n---\n\n") : "");
+  parts.push({ type: "text", text: fullText });
+  var body = {
+    model: MODEL,
+    max_tokens: mt,
+    system: sys,
+    messages: [{ role: "user", content: parts }],
+    stream: true
+  };
+  var r = await fetch("/api/claude", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "x-tesp-password": pwd },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) {
+    var e = await r.json().catch(function(){ return {}; });
+    throw new Error((e.error && e.message) || (e.message) || ("API: " + r.status));
+  }
+  var contentType = r.headers.get("content-type") || "";
+  var rawText = "";
+  if (contentType.indexOf("event-stream") > -1) {
+    var reader = r.body.getReader();
+    var decoder = new TextDecoder();
+    var buffer = "";
+    while (true) {
+      var chunk = await reader.read();
+      if (chunk.done) break;
+      buffer += decoder.decode(chunk.value, { stream: true });
+      var lines = buffer.split("\n");
+      buffer = lines.pop();
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        if (line.indexOf("data:") !== 0) continue;
+        var dataLine = line.slice(5).trim();
+        if (!dataLine || dataLine === "[DONE]") continue;
+        try {
+          var evt = JSON.parse(dataLine);
+          if (evt.type === "content_block_delta" && evt.delta && evt.delta.text) rawText += evt.delta.text;
+          if (evt.type === "error" && evt.error) throw new Error("Stream error: " + (evt.error.message || JSON.stringify(evt.error)));
+        } catch (parseErr) {
+          if (parseErr.message && parseErr.message.indexOf("Stream error") === 0) throw parseErr;
+        }
+      }
+    }
+  } else {
+    var data = await r.json();
+    rawText = (data.content && data.content[0] && data.content[0].text) || "{}";
+  }
+  return parseJSONLoose(rawText || "{}");
+}
+
+function parseJSONLoose(raw){
+  var clean = raw.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
+  try { return JSON.parse(clean); } catch (e1) {}
+  try { var m = clean.match(/\{[\s\S]*\}/); if (m) return JSON.parse(m[0]); } catch (e2) {}
+  try {
+    var fixed = clean;
+    fixed = fixed.replace(/,\s*"[^"]*"\s*:\s*"[^"]*$/, "");
+    fixed = fixed.replace(/,\s*"[^"]*"\s*:\s*\[[^\]]*$/, "");
+    fixed = fixed.replace(/,\s*"[^"]*"\s*:\s*\{[^\}]*$/, "");
+    fixed = fixed.replace(/,\s*"[^"]*"\s*:?\s*$/, "");
+    fixed = fixed.replace(/,\s*$/, "");
+    var ob = (fixed.match(/\{/g) || []).length, cb = (fixed.match(/\}/g) || []).length;
+    var oa = (fixed.match(/\[/g) || []).length, ca = (fixed.match(/\]/g) || []).length;
+    for (var i = 0; i < oa - ca; i++) fixed += "]";
+    for (var j = 0; j < ob - cb; j++) fixed += "}";
+    return JSON.parse(fixed);
+  } catch (e3) {}
+  throw new Error("JSON malformé renvoyé par l'agent — réessayez");
+}
+
+function dateISO(){ return new Date().toISOString().slice(0,10); }
+
+function buildCtx(registreResult){
+  var name = $("projName").value.trim() || "(nom non renseigné)";
+  var cio = $("projCio").value.trim();
+  var txt = $("projText").value.trim();
+  var fallback = S.files.length ? "(voir documents joints ci-dessous)" : "(aucun texte fourni)";
+  var registreBlock = "";
+  if (registreResult && registreResult.found) {
+    var rlines = Object.keys(registreResult.raw).map(function(k){ return k + ": " + String(registreResult.raw[k]); });
+    registreBlock = "\n\n=== DONNÉES DU REGISTRE PROJETS TRL (projet retrouvé — source de référence) ===\n" +
+      (rlines.length ? rlines.join("\n") : "(page trouvée mais sans propriété renseignée)");
+  } else if (registreResult && !registreResult.found) {
+    registreBlock = "\n\n=== REGISTRE PROJETS TRL ===\nProjet non trouvé dans le Registre Projets TRL — évaluation basée uniquement sur les données ci-dessous.";
+  }
+  return "=== PROJET ===\nNom : " + name + (cio ? "\nID projet CIO : " + cio : "") +
+    "\nDate d'évaluation : " + dateISO() + registreBlock +
+    "\n\n=== DOSSIER FOURNI (texte collé + fichiers joints) ===\n" + (txt || fallback);
+}
+
+// ── Progress UI ──
+var STEPS = [
+  { key: "team", label: "Équipe (SYS_IRL_TEAM)" },
+  { key: "biz", label: "Business (SYS_IRL_BIZ)" },
+  { key: "ip", label: "Propriété intellectuelle (SYS_IRL_IP)" },
+  { key: "fin", label: "Financement (SYS_IRL_FIN)" },
+  { key: "com", label: "Commercial / CRL (SYS_IRL_COM)" },
+  { key: "gate", label: "Synthèse (SYS_IRL_GATE)" }
+];
+function renderProgress(status){
+  var el = $("progress"); el.style.display = "flex"; el.innerHTML = "";
+  STEPS.forEach(function(s){
+    var st = status[s.key] || "pending";
+    var row = document.createElement("div");
+    row.className = "row-p " + (st === "done" ? "done" : st === "active" ? "active" : st === "err" ? "err" : "");
+    row.innerHTML = '<span class="dot"></span><span>' + s.label + (st === "done" ? " ✓" : st === "active" ? " …" : st === "err" ? " ⚠" : "") + "</span>";
+    el.appendChild(row);
+  });
+}
+
+// ── Orchestration (cœur réutilisé par le mode manuel et le mode lot) ──
+// onStep(key, "active"|"done"|"err") est appelé pour chacune des 6 étapes (team,biz,ip,fin,com,gate).
+async function runFullEvaluation(ctx, files, onStep){
+  onStep("team", "active"); onStep("biz", "active"); onStep("ip", "active"); onStep("fin", "active"); onStep("com", "active");
+  var settled = await Promise.all([
+    callAI(SYS_IRL_TEAM, ctx, files, 3000).then(function(r){ onStep("team", "done"); return r; }).catch(function(e){ onStep("team", "err"); throw e; }),
+    callAI(SYS_IRL_BIZ, ctx, files, 3000).then(function(r){ onStep("biz", "done"); return r; }).catch(function(e){ onStep("biz", "err"); throw e; }),
+    callAI(SYS_IRL_IP, ctx, files, 3000).then(function(r){ onStep("ip", "done"); return r; }).catch(function(e){ onStep("ip", "err"); throw e; }),
+    callAI(SYS_IRL_FIN, ctx, files, 3000).then(function(r){ onStep("fin", "done"); return r; }).catch(function(e){ onStep("fin", "err"); throw e; }),
+    callAI(SYS_IRL_COM, ctx, files, 3000).then(function(r){ onStep("com", "done"); return r; }).catch(function(e){ onStep("com", "err"); throw e; })
+  ]);
+  var team = settled[0], biz = settled[1], ip = settled[2], fin = settled[3], com = settled[4];
+  var results = { team: team, biz: biz, ip: ip, fin: fin, com: com };
+
+  onStep("gate", "active");
+  var gateCtx = "=== PROJET ===\n" + ctx.split("=== DOSSIER FOURNI")[0] +
+    "\n\n=== VERDICTS DES 5 AGENTS DIMENSION (à agréger, ne pas réévaluer) ===\n" +
+    JSON.stringify({ team: team, business: biz, ip: ip, financement: fin, commercial: com }, null, 0);
+  var gate = await callAI(SYS_IRL_GATE, gateCtx, null, 3000);
+  results.gate = gate;
+  onStep("gate", "done");
+  return results;
+}
+
+async function runEvaluation(){
+  var txt = $("projText").value.trim();
+  if (!txt && S.files.length === 0) { showToast("Colle du texte ou joins au moins un fichier avant de lancer l'évaluation."); return; }
+  if (S.filesConverting > 0) { showToast("Conversion de fichier(s) en cours — patiente quelques secondes."); return; }
+  $("btnRun").disabled = true;
+  $("errBox").style.display = "none";
+  S.error = null;
+  var status = { team:"pending", biz:"pending", ip:"pending", fin:"pending", com:"pending", gate:"pending" };
+  renderProgress(status);
+  var files = S.files.slice();
+  var registreResult = null;
+  try {
+    var lookupCtx = await prepareRegistreLookup();
+    if (lookupCtx) {
+      registreResult = await resolveProjectInRegistre({ nom: $("projName").value.trim(), cio: $("projCio").value.trim() }, lookupCtx);
+      showToast(registreResult.found ? "✓ Projet trouvé dans le Registre Projets TRL — infos ajoutées." : "⚠ Projet non trouvé dans le Registre Projets TRL.");
+    }
+  } catch (lookupErr) {
+    showToast("⚠ Vérification Registre Projets TRL impossible : " + (lookupErr.message || String(lookupErr)));
+  }
+  S.registreResult = registreResult;
+  var ctx = buildCtx(registreResult);
+  try {
+    var results = await runFullEvaluation(ctx, files, function(key, state){ status[key] = state; renderProgress(status); });
+    S.results = results;
+    renderResults();
+  } catch (e) {
+    S.error = e.message || String(e);
+    $("errBox").textContent = "Erreur : " + S.error;
+    $("errBox").style.display = "block";
+  } finally {
+    $("btnRun").disabled = false;
+  }
+}
+
+// ── Rendu résultats ──
+function critereRow(name, c){
+  c = c || { statut: "Non", preuve: "", confiance: "Faible" };
+  return '<div class="crit"><div class="ch"><span class="cname">' + name + '</span><span class="badge ' + c.statut + '">' + c.statut + '</span></div>' +
+    (c.preuve ? '<div class="cproof">' + escapeHtml(c.preuve) + '</div>' : '<div class="cproof" style="font-style:italic">aucune preuve citée</div>') +
+    '<div class="cconf">confiance : ' + (c.confiance || "—") + "</div></div>";
+}
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, function(m){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]; });
+}
+var CRIT_LABELS = {
+  equipe_coeur_identifiee: "Équipe cœur identifiée", competences_cles_couvertes: "Compétences clés couvertes",
+  disponibilite_engagement: "Disponibilité / engagement", gouvernance_decisionnelle: "Gouvernance décisionnelle",
+  soutien_expert_mentorat: "Soutien expert / mentorat", continuite_succession: "Continuité / succession",
+  probleme_client_valide: "Problème client validé", proposition_valeur_formalisee: "Proposition de valeur formalisée",
+  modele_economique_defini: "Modèle économique défini", hypotheses_testees: "Hypothèses testées", plan_deploiement: "Plan de déploiement",
+  etat_art_realise: "État de l'art réalisé", proprietaire_ip_clarifie: "Titularité IP clarifiée",
+  protection_engagee: "Protection engagée", accords_partenaires: "Accords partenaires", freedom_to_operate: "Freedom to operate",
+  budget_documente: "Budget documenté", financement_securise: "Financement sécurisé",
+  plan_financement_prochaine_etape: "Plan financement étape suivante", suivi_budgetaire: "Suivi budgétaire",
+  viabilite_financiere_moyen_terme: "Viabilité financière moyen terme",
+  besoin_marche_identifie: "Besoin marché identifié", proposition_commerciale_definie: "Proposition commerciale définie",
+  interet_client_valide: "Intérêt client validé", voie_commercialisation_testee: "Voie de commercialisation testée"
+};
+function dimCard(title, d){
+  if (!d) return "";
+  var html = '<div class="dim-card"><div class="dh"><span class="dtitle">' + title + '</span><span class="badge ' + (d.statut_dimension || "Non") + '">' + (d.statut_dimension || "—") + "</span></div>";
+  if (d.crl_actuel) html += '<div class="crl-pill">CRL ' + d.crl_actuel + "/9</div>";
+  var crits = d.criteres || {};
+  Object.keys(crits).forEach(function(k){ html += critereRow(CRIT_LABELS[k] || k, crits[k]); });
+  html += "</div>";
+  return html;
+}
+function renderResults(){
+  var r = S.results; if (!r) return;
+  var g = r.gate || {};
+  var recoClass = (g.recommandation_transmission || "").replace(/\s+/g, "_");
+  var html = '<div class="gate-card"><h2><span class="n" style="background:rgba(255,255,255,.15);color:#fff">◆</span> Synthèse pour le Head Innovation</h2>' +
+    '<div class="gate-score">' + (typeof g.score_global === "number" ? g.score_global : "—") + '<span> / 5 dimensions à « Oui »</span></div>' +
+    '<div class="gate-reco ' + recoClass + '">' + (g.recommandation_transmission || "—") + "</div>" +
+    '<div class="gate-body">' + escapeHtml(g.synthese || "") + "</div>";
+  if (g.gaps_identifies && g.gaps_identifies.length) {
+    html += '<div class="gap-list"><h4>Gaps à combler avant transmission</h4>';
+    g.gaps_identifies.forEach(function(gap){
+      html += '<div class="gap-item"><strong>' + (gap.dimension || "") + " — " + (gap.critere || "") + "</strong> · " + escapeHtml(gap.action_suggeree || "") + "</div>";
+    });
+    html += "</div>";
+  }
+  if (g.points_a_clarifier && g.points_a_clarifier.length) {
+    html += '<div class="gap-list"><h4>Points à clarifier (statut Partiel)</h4>';
+    g.points_a_clarifier.forEach(function(p){
+      html += '<div class="gap-item"><strong>' + (p.dimension || "") + " — " + (p.critere || "") + "</strong> · " + escapeHtml(p.question || "") + "</div>";
+    });
+    html += "</div>";
+  }
+  if (g.alerte_echeance) html += '<div class="alerte">⏱️ ' + escapeHtml(g.alerte_echeance) + "</div>";
+  html += "</div>";
+
+  html += '<div class="card"><h2><span class="n">3</span> Détail par dimension</h2><div class="dim-grid">' +
+    dimCard("Équipe", r.team) + dimCard("Business", r.biz) + dimCard("Propriété intellectuelle", r.ip) +
+    dimCard("Financement", r.fin) + dimCard("Commercial", r.com) + "</div></div>";
+
+  html += '<div class="card"><h2><span class="n">4</span> Transmission vers Notion</h2>' +
+    '<label>ID de la page Notion du projet (optionnel)</label>' +
+    '<input type="text" id="notionPageId" placeholder="laisser vide pour recherche/création automatique">' +
+    '<div class="hint">Si laissé vide, l\'app cherche automatiquement la page dans la base « IRL Assessment » (via l\'ID projet CIO, sinon le nom) et la crée si elle n\'existe pas encore.</div>' +
+    '<div class="actions"><button class="btn-gold" id="btnPush">Pousser les résultats vers Notion</button></div>' +
+    '<div id="pushStatus" class="setup-status"></div></div>';
+
+  $("resultsZone").innerHTML = html;
+  $("btnPush").addEventListener("click", pushToNotion);
+}
+
+// ── Notion : helpers bas niveau (proxy /api/notion, convention "IRL - <Dimension> - <Champ>") ──
+async function notionFetch(path, method, body){
+  var token = localStorage.getItem("irl_notion_token") || "";
+  var pwd = sessionStorage.getItem("irl_access_pwd") || "";
+  var opts = { method: method, headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token, "Notion-Version": "2022-06-28", "x-tesp-password": pwd } };
+  if (body) opts.body = JSON.stringify(body);
+  var resp = await fetch("/api/notion?path=" + encodeURIComponent(path), opts);
+  var data = await resp.json().catch(function(){ return {}; });
+  if (!resp.ok) throw new Error((data && data.message) || ("HTTP " + resp.status));
+  return data;
+}
+
+function buildNotionProperties(r){
+  var g = r.gate || {};
+  function dimProps(prefix, d){
+    var out = {};
+    if (!d) return out;
+    out[prefix + " - Statut"] = { select: { name: d.statut_dimension || "Non" } };
+    out[prefix + " - Confiance"] = { select: { name: d.fiabilite_globale || "Faible" } };
+    var crits = d.criteres || {};
+    var proofLines = Object.keys(crits).map(function(k){
+      var c = crits[k];
+      return "• " + (CRIT_LABELS[k] || k) + " [" + c.statut + "] " + (c.preuve || "(aucune preuve)");
+    }).join("\n");
+    out[prefix + " - Preuve"] = { rich_text: [{ type: "text", text: { content: proofLines.substring(0, 1900) }, annotations: { color: "yellow_background" } }] };
+    return out;
+  }
+  var properties = Object.assign(
+    {},
+    dimProps("IRL - Team", r.team),
+    dimProps("IRL - Business", r.biz),
+    dimProps("IRL - IP", r.ip),
+    dimProps("IRL - Financement", r.fin),
+    dimProps("IRL - Commercial", r.com)
+  );
+  if (r.com && r.com.crl_actuel) properties["IRL - CRL"] = { number: r.com.crl_actuel };
+  properties["IRL - Score global"] = { number: typeof g.score_global === "number" ? g.score_global : 0 };
+  properties["IRL - Recommandation transmission"] = { select: { name: g.recommandation_transmission || "Non pret" } };
+  properties["IRL - Synthese"] = { rich_text: [{ type: "text", text: { content: (g.synthese || "").substring(0, 1900) }, annotations: { color: "yellow_background" } }] };
+  properties["IRL - Date generation"] = { date: { start: dateISO() } };
+  return properties;
+}
+
+async function pushResultsToNotionPage(pageId, results, extraProperties){
+  var properties = Object.assign({}, buildNotionProperties(results), extraProperties || {});
+  await notionFetch("/pages/" + pageId, "PATCH", { properties: properties });
+}
+
+// ── Vérification dans le Registre Projets TRL (lecture seule — rien n'y est jamais écrit) ──
+// Avant chaque évaluation, si une base Registre est configurée (section Accès), le projet y est
+// cherché par ID projet CIO (ou nom) ; s'il existe, ses informations servent de source pour
+// l'évaluation, et sa page reste liée depuis "IRL Assessment" via la propriété "Projet lie (TESP)".
+async function prepareRegistreLookup(){
+  var registreDbId = localStorage.getItem("irl_registre_db_id") || "";
+  if (!registreDbId) return null;
+  var db = await notionFetch("/databases/" + registreDbId, "GET");
+  var propNames = Object.keys(db.properties || {});
+  var nomProp = findPropNameByAliases(propNames, COL_ALIASES.nom) || findPropNameByAliases(propNames, ["titre", "title", "name", "nom"]);
+  var cioProp = findPropNameByAliases(propNames, COL_ALIASES.cio);
+  if (!nomProp && !cioProp) return null;
+  return {
+    dbId: registreDbId, propNames: propNames,
+    nomProp: nomProp, nomPropType: nomProp ? db.properties[nomProp].type : null,
+    cioProp: cioProp, cioPropType: cioProp ? db.properties[cioProp].type : null
+  };
+}
+function buildEqualsFilter(propName, propType, value){
+  if (propType === "title") return { property: propName, title: { equals: value } };
+  if (propType === "rich_text") return { property: propName, rich_text: { equals: value } };
+  if (propType === "select") return { property: propName, select: { equals: value } };
+  return null;
+}
+// Retourne null si aucune base Registre configurée/exploitable ; sinon { found, pageId, raw }.
+async function resolveProjectInRegistre(proj, lookupCtx){
+  if (!lookupCtx) return null;
+  var filter = null;
+  if (proj.cio && lookupCtx.cioProp) filter = buildEqualsFilter(lookupCtx.cioProp, lookupCtx.cioPropType, proj.cio);
+  if (!filter && proj.nom && lookupCtx.nomProp) filter = buildEqualsFilter(lookupCtx.nomProp, lookupCtx.nomPropType, proj.nom);
+  if (!filter) return { found: false };
+  var q = await notionFetch("/databases/" + lookupCtx.dbId + "/query", "POST", { filter: filter, page_size: 1 });
+  if (!q.results || !q.results.length) return { found: false };
+  var pg = q.results[0];
+  var raw = {};
+  lookupCtx.propNames.forEach(function(pn){ var v = notionPropToText(pg.properties[pn]); if (v) raw[pn] = v; });
+  return { found: true, pageId: pg.id, raw: raw };
+}
+// Crée la propriété relation "Projet lie (TESP)" dans "IRL Assessment" si elle n'existe pas encore
+// (même geste que scripts/create-notion-db.js) — appelé une fois par run, jamais si déjà présente.
+async function ensureRelationToRegistre(registreDbId){
+  var dbId = localStorage.getItem("irl_notion_db_id") || "";
+  var db = await notionFetch("/databases/" + dbId, "GET");
+  var existing = db.properties && db.properties["Projet lie (TESP)"];
+  if (existing) return existing.type === "relation";
+  await notionFetch("/databases/" + dbId, "PATCH", { properties: { "Projet lie (TESP)": { relation: { database_id: registreDbId, single_property: {} } } } });
+  return true;
+}
+
+// Cherche une page existante dans la base "IRL Assessment" (par ID projet CIO, sinon par nom) ;
+// la crée si elle n'existe pas encore, avec les propriétés d'identification connues.
+// Retourne { id, properties, isNew } — properties sert à la consolidation "ne rien écraser" ci-dessus.
+async function findOrCreateNotionProjectPage(proj){
+  var dbId = localStorage.getItem("irl_notion_db_id") || "";
+  if (!dbId) throw new Error("ID de base Notion manquant (section Accès).");
+  var filter = proj.cio
+    ? { property: "ID projet CIO", rich_text: { equals: proj.cio } }
+    : { property: "Nom du projet", title: { equals: proj.nom } };
+  var q = await notionFetch("/databases/" + dbId + "/query", "POST", { filter: filter, page_size: 1 });
+  if (q.results && q.results.length) return { id: q.results[0].id, properties: q.results[0].properties || {}, isNew: false };
+
+  var props = { "Nom du projet": { title: [{ type: "text", text: { content: proj.nom || "(sans nom)" } }] } };
+  if (proj.cio) props["ID projet CIO"] = { rich_text: [{ type: "text", text: { content: proj.cio } }] };
+  if (proj.entite) props["Entite"] = { rich_text: [{ type: "text", text: { content: proj.entite } }] };
+  if (proj.sbu) props["SBU sponsor"] = { rich_text: [{ type: "text", text: { content: proj.sbu } }] };
+  props["IRL - Statut transmission"] = { select: { name: "Brouillon" } };
+  props["IRL - Date limite"] = { date: { start: "2026-10-15" } };
+  var created = await notionFetch("/pages", "POST", { parent: { database_id: dbId }, properties: props });
+  return { id: created.id, properties: created.properties || {}, isNew: true };
+}
+
+// ── Push Notion — projet unique (bouton section 4) ──
+// registreResult.found → { "Projet lie (TESP)": { relation: [{ id: pageId }] } }, sinon {}.
+function buildRegistreRelationProperty(registreResult){
+  if (!registreResult || !registreResult.found) return {};
+  return { "Projet lie (TESP)": { relation: [{ id: registreResult.pageId }] } };
+}
+
+async function pushToNotion(){
+  var token = localStorage.getItem("irl_notion_token") || "";
+  if (!token) { showToast("Renseigne le token Notion dans la section Accès."); return; }
+  var r = S.results; if (!r) return;
+  var pageIdInput = $("notionPageId").value.trim();
+  try {
+    $("pushStatus").textContent = "Envoi en cours…";
+    var pageId = pageIdInput;
+    if (!pageId) {
+      var pageInfo = await findOrCreateNotionProjectPage({
+        nom: $("projName").value.trim() || "(sans nom)",
+        cio: $("projCio").value.trim(),
+        entite: "",
+        sbu: ""
+      });
+      pageId = pageInfo.id;
+    }
+    var extraProps = {};
+    var registreDbId = localStorage.getItem("irl_registre_db_id") || "";
+    if (registreDbId && S.registreResult && S.registreResult.found) {
+      try { await ensureRelationToRegistre(registreDbId); extraProps = buildRegistreRelationProperty(S.registreResult); }
+      catch (relErr) { /* la relation n'est pas bloquante — le reste du push continue */ }
+    }
+    await pushResultsToNotionPage(pageId, r, extraProps);
+    $("pushStatus").textContent = "✓ Envoyé vers Notion" + (pageIdInput ? "." : " (page trouvée ou créée automatiquement)") + (extraProps["Projet lie (TESP)"] ? ", lié au Registre Projets TRL." : ".");
+    showToast("Résultats poussés vers Notion.");
+  } catch (e) {
+    var msg = e.message || String(e);
+    if (msg.indexOf("does not exist") > -1 || msg.indexOf("Could not find") > -1) {
+      $("pushStatus").textContent = "Propriété introuvable dans la base Notion — vérifie qu'elle a bien été créée avec scripts/create-notion-db.js (voir NOTION_SCHEMA.md).";
+    } else {
+      $("pushStatus").textContent = "Échec — " + msg.substring(0, 200);
+    }
+  }
+}
+
+// ── Mode lot : détection des projets depuis un fichier BDD (.xlsx) ──
+function normalizeHeader(s){
+  return String(s == null ? "" : s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+}
+var COL_ALIASES = {
+  nom: ["nom du projet", "nom projet"],
+  cio: ["id projet cio", "id cio", "identifiant cio"],
+  entite: ["entite"],
+  sbu: ["sbu sponsor", "sbu"]
+};
+function findColIndex(headerRow, aliases){
+  var norm = headerRow.map(normalizeHeader);
+  for (var i = 0; i < norm.length; i++) { if (aliases.indexOf(norm[i]) > -1) return i; }
+  for (var i2 = 0; i2 < norm.length; i2++) { for (var a = 0; a < aliases.length; a++) { if (norm[i2] && norm[i2].indexOf(aliases[a]) > -1) return i2; } }
+  return -1;
+}
+function pickBddSheet(wb){
+  var best = null;
+  wb.SheetNames.forEach(function(sname){
+    var ws = wb.Sheets[sname];
+    var rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: "", blankrows: false });
+    if (!rows.length) return;
+    for (var hr = 0; hr < Math.min(5, rows.length); hr++) {
+      var headerRow = rows[hr];
+      var iNom = findColIndex(headerRow, COL_ALIASES.nom);
+      var iCio = findColIndex(headerRow, COL_ALIASES.cio);
+      if (iNom === -1 && iCio === -1) continue;
+      var iEntite = findColIndex(headerRow, COL_ALIASES.entite);
+      var iSbu = findColIndex(headerRow, COL_ALIASES.sbu);
+      var score = (iNom > -1 ? 1 : 0) + (iCio > -1 ? 1 : 0) + (iEntite > -1 ? 1 : 0) + (iSbu > -1 ? 1 : 0);
+      if (!best || score > best.score) {
+        var projects = [];
+        for (var r = hr + 1; r < rows.length; r++) {
+          var row = rows[r];
+          if (!row || row.every(function(c){ return c === "" || c == null; })) continue;
+          var nom = iNom > -1 ? String(row[iNom] || "").trim() : "";
+          var cio = iCio > -1 ? String(row[iCio] || "").trim() : "";
+          if (!nom && !cio) continue;
+          var raw = {};
+          headerRow.forEach(function(h, ci){
+            var label = String(h || "").trim();
+            if (!label) return;
+            var v = row[ci];
+            if (v !== "" && v !== null && v !== undefined) raw[label] = v;
+          });
+          var identityHeaders = [];
+          if (iNom > -1) identityHeaders.push(String(headerRow[iNom] || "").trim());
+          if (iCio > -1) identityHeaders.push(String(headerRow[iCio] || "").trim());
+          if (iEntite > -1) identityHeaders.push(String(headerRow[iEntite] || "").trim());
+          if (iSbu > -1) identityHeaders.push(String(headerRow[iSbu] || "").trim());
+          projects.push({
+            nom: nom || ("(sans nom — " + cio + ")"),
+            cio: cio,
+            entite: iEntite > -1 ? String(row[iEntite] || "").trim() : "",
+            sbu: iSbu > -1 ? String(row[iSbu] || "").trim() : "",
+            raw: raw, identityHeaders: identityHeaders, selected: true, status: "idle", results: null, error: null
+          });
+        }
+        if (projects.length) {
+          var foundLabels = [];
+          if (iNom > -1) foundLabels.push("Nom du projet");
+          if (iCio > -1) foundLabels.push("ID projet CIO");
+          if (iEntite > -1) foundLabels.push("Entite");
+          if (iSbu > -1) foundLabels.push("SBU sponsor");
+          best = { score: score, sheetName: sname, projects: projects, foundLabels: foundLabels };
+        }
+      }
+      break;
+    }
+  });
+  return best;
+}
+function handleBddFile(file){
+  var name = file.name.toLowerCase();
+  if (!name.match(/\.xlsx?$/i)) { showToast("Le fichier de lot doit être un .xlsx/.xls (BDD Innovation UM6P ou équivalent)."); return; }
+  loadSheetJS(function(){
+    var reader = new FileReader();
+    reader.onload = function(e){
+      try {
+        var wb = XLSX.read(e.target.result, { type: "array" });
+        var picked = pickBddSheet(wb);
+        if (!picked) { showToast("Aucune colonne « Nom du projet » ou « ID projet CIO » détectée dans ce fichier."); return; }
+        S.batchProjects = picked.projects;
+        $("batchFileInfo").textContent = file.name + " — feuille « " + picked.sheetName + " » — " + picked.projects.length + " projet(s) détecté(s) (colonnes reconnues : " + picked.foundLabels.join(", ") + ").";
+        renderBatchTable();
+        showToast(picked.projects.length + " projets détectés dans " + file.name);
+      } catch (err) {
+        showToast("⚠ Erreur lecture fichier : " + err.message);
+      }
+    };
+    reader.onerror = function(){ showToast("⚠ Erreur lecture: " + file.name); };
+    reader.readAsArrayBuffer(file);
+  });
+}
+
+// ── Mode lot : charger les projets depuis une base Notion existante (ex. Registre Projets TRL) ──
+// Même pipeline ensuite que le fichier BDD (S.batchProjects, table, lot, consolidation "BDD - *").
+function notionPropToText(prop){
+  if (!prop) return "";
+  switch (prop.type) {
+    case "title": return (prop.title || []).map(function(t){ return t.plain_text || ""; }).join("");
+    case "rich_text": return (prop.rich_text || []).map(function(t){ return t.plain_text || ""; }).join("");
+    case "select": return prop.select ? prop.select.name : "";
+    case "status": return prop.status ? prop.status.name : "";
+    case "multi_select": return (prop.multi_select || []).map(function(o){ return o.name; }).join(", ");
+    case "number": return (prop.number === null || prop.number === undefined) ? "" : String(prop.number);
+    case "date": return prop.date ? (prop.date.start + (prop.date.end ? " → " + prop.date.end : "")) : "";
+    case "checkbox": return prop.checkbox ? "Oui" : "Non";
+    case "url": return prop.url || "";
+    case "email": return prop.email || "";
+    case "phone_number": return prop.phone_number || "";
+    case "people": return (prop.people || []).map(function(p){ return p.name || p.id; }).join(", ");
+    case "files": return (prop.files || []).map(function(f){ return f.name || ""; }).join(", ");
+    case "relation": return (prop.relation || []).map(function(r){ return r.id; }).join(", ");
+    case "created_time": return prop.created_time || "";
+    case "last_edited_time": return prop.last_edited_time || "";
+    case "formula":
+      if (!prop.formula) return "";
+      if (prop.formula.type === "string") return prop.formula.string || "";
+      if (prop.formula.type === "number") return (prop.formula.number === null || prop.formula.number === undefined) ? "" : String(prop.formula.number);
+      if (prop.formula.type === "boolean") return prop.formula.boolean ? "Oui" : "Non";
+      if (prop.formula.type === "date") return prop.formula.date ? (prop.formula.date.start + (prop.formula.date.end ? " → " + prop.formula.date.end : "")) : "";
+      return "";
+    case "rollup": return prop.rollup && prop.rollup.array ? prop.rollup.array.map(notionPropToText).join(", ") : "";
+    default: return "";
+  }
+}
+function findPropNameByAliases(propNames, aliases){
+  var norm = propNames.map(normalizeHeader);
+  for (var i = 0; i < norm.length; i++) { if (aliases.indexOf(norm[i]) > -1) return propNames[i]; }
+  for (var i2 = 0; i2 < norm.length; i2++) { for (var a = 0; a < aliases.length; a++) { if (norm[i2] && norm[i2].indexOf(aliases[a]) > -1) return propNames[i2]; } }
+  return null;
+}
+// registreResult (optionnel, depuis resolveProjectInRegistre) : quand le projet est trouvé, ses
+// informations du Registre Projets TRL s'ajoutent en tête du dossier (source la plus fiable, jamais
+// modifiée) ; quand il ne l'est pas, une alerte explicite est ajoutée pour l'agent et pour le journal.
+function buildCtxForProject(proj, registreResult){
+  var lines = Object.keys(proj.raw).map(function(k){ return k + ": " + String(proj.raw[k]); });
+  var registreBlock = "";
+  if (registreResult && registreResult.found) {
+    var rlines = Object.keys(registreResult.raw).map(function(k){ return k + ": " + String(registreResult.raw[k]); });
+    registreBlock = "\n\n=== DONNÉES DU REGISTRE PROJETS TRL (projet retrouvé — source de référence) ===\n" +
+      (rlines.length ? rlines.join("\n") : "(page trouvée mais sans propriété renseignée)");
+  } else if (registreResult && !registreResult.found) {
+    registreBlock = "\n\n=== REGISTRE PROJETS TRL ===\nProjet non trouvé dans le Registre Projets TRL — évaluation basée uniquement sur les données ci-dessous.";
+  }
+  return "=== PROJET ===\nNom : " + proj.nom + (proj.cio ? "\nID projet CIO : " + proj.cio : "") +
+    "\nDate d'évaluation : " + dateISO() + registreBlock +
+    "\n\n=== DOSSIER FOURNI (ligne BDD Innovation UM6P — complément) ===\n" +
+    (lines.length ? lines.join("\n") : "(aucune donnée non vide sur cette ligne)");
+}
+
+// ── Mode lot : rendu tableau + log + orchestration séquentielle ──
+function batchStatusBadge(st){
+  if (st === "active") return '<span class="badge Partiel">en cours…</span>';
+  if (st === "ok") return '<span class="badge Oui">ok</span>';
+  if (st === "err") return '<span class="badge Non">erreur</span>';
+  return '<span class="badge" style="background:var(--light2);color:var(--mid);border:1px solid var(--border)">à faire</span>';
+}
+function renderBatchTable(){
+  var wrap = $("batchTableWrap");
+  if (!S.batchProjects.length) { wrap.innerHTML = ""; $("batchControls").style.display = "none"; return; }
+  $("batchControls").style.display = "flex";
+  var selCount = S.batchProjects.filter(function(p){ return p.selected; }).length;
+  $("btnBatchRun").textContent = "Lancer le lot (" + selCount + " sélectionné" + (selCount > 1 ? "s" : "") + ")";
+  var hasResults = S.batchProjects.some(function(p){ return p.results; });
+  var html = '<div style="max-height:340px;overflow:auto;border:1px solid var(--border);border-radius:var(--r-md)">' +
+    '<table style="width:100%;border-collapse:collapse;font-size:12.5px"><thead><tr style="background:var(--light2);text-align:left">' +
+    '<th style="padding:8px"><input type="checkbox" id="batchSelectAll" style="width:auto"></th>' +
+    '<th style="padding:8px">Projet</th><th style="padding:8px">ID CIO</th><th style="padding:8px">Entité</th><th style="padding:8px">SBU</th><th style="padding:8px">Statut</th>' +
+    (hasResults ? '<th style="padding:8px"></th>' : "") + "</tr></thead><tbody>";
+  S.batchProjects.forEach(function(p, i){
+    html += '<tr style="border-top:1px solid var(--border)">' +
+      '<td style="padding:8px"><input type="checkbox" class="batch-cb" data-idx="' + i + '" style="width:auto" ' + (p.selected ? "checked" : "") + '></td>' +
+      '<td style="padding:8px">' + escapeHtml(p.nom) + '</td>' +
+      '<td style="padding:8px">' + escapeHtml(p.cio) + '</td>' +
+      '<td style="padding:8px">' + escapeHtml(p.entite) + '</td>' +
+      '<td style="padding:8px">' + escapeHtml(p.sbu) + '</td>' +
+      '<td style="padding:8px">' + batchStatusBadge(p.status) + (p.status === "err" ? '<div class="cproof" style="margin-top:2px">' + escapeHtml(p.error || "") + '</div>' : "") + '</td>' +
+      (p.results ? '<td style="padding:8px"><button type="button" class="btn-ghost batch-view" data-idx="' + i + '" style="padding:4px 10px;font-size:11px">voir</button></td>' : (hasResults ? "<td></td>" : "")) +
+      "</tr>";
+  });
+  html += "</tbody></table></div>";
+  wrap.innerHTML = html;
+  $("batchSelectAll").addEventListener("change", function(e){
+    S.batchProjects.forEach(function(p){ p.selected = e.target.checked; });
+    renderBatchTable();
+  });
+  Array.prototype.forEach.call(wrap.querySelectorAll(".batch-cb"), function(cb){
+    cb.addEventListener("change", function(){ S.batchProjects[+cb.dataset.idx].selected = cb.checked; renderBatchTable(); });
+  });
+  Array.prototype.forEach.call(wrap.querySelectorAll(".batch-view"), function(btn){
+    btn.addEventListener("click", function(){
+      var p = S.batchProjects[+btn.dataset.idx];
+      if (!p.results) return;
+      S.results = p.results;
+      renderResults();
+      $("resultsZone").scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+function logBatch(line){
+  var el = $("batchLog"); if (!el) return;
+  el.style.display = "block";
+  var row = document.createElement("div");
+  row.textContent = line;
+  el.appendChild(row);
+  el.scrollTop = el.scrollHeight;
+}
+async function processOneProject(proj, n, total, pushEnabled, lookupCtx, relationReady){
+  proj.status = "active"; proj.error = null; renderBatchTable();
+  logBatch("▶ [" + n + "/" + total + "] " + proj.nom + " — vérification Registre Projets TRL…");
+  try {
+    var registreResult = null;
+    if (lookupCtx) {
+      registreResult = await resolveProjectInRegistre(proj, lookupCtx);
+      logBatch((registreResult.found ? "  ✓ trouvé dans le Registre Projets TRL." : "  ⚠ absent du Registre Projets TRL — évaluation basée sur la BDD seule.") );
+    }
+    logBatch("  évaluation…");
+    var ctx = buildCtxForProject(proj, registreResult);
+    var results = await runFullEvaluation(ctx, [], function(){});
+    proj.results = results;
+    var g = results.gate || {};
+    var msg = "✓ [" + n + "/" + total + "] " + proj.nom + " — score " + (typeof g.score_global === "number" ? g.score_global : "?") + "/5 — " + (g.recommandation_transmission || "—");
+    if (pushEnabled) {
+      try {
+        var pageInfo = await findOrCreateNotionProjectPage(proj);
+        var extraProps = (relationReady && registreResult && registreResult.found) ? buildRegistreRelationProperty(registreResult) : {};
+        await pushResultsToNotionPage(pageInfo.id, results, extraProps);
+        msg += " — poussé vers Notion" + (extraProps["Projet lie (TESP)"] ? " (lié au Registre)" : "") + ".";
+      } catch (notionErr) {
+        msg += " — ⚠ Notion : " + (notionErr.message || String(notionErr)).substring(0, 150);
+      }
+    }
+    proj.status = "ok";
+    logBatch(msg);
+  } catch (e) {
+    proj.status = "err";
+    proj.error = e.message || String(e);
+    logBatch("✗ [" + n + "/" + total + "] " + proj.nom + " — Erreur : " + proj.error);
+  }
+  renderBatchTable();
+}
+async function runBatch(){
+  var selected = S.batchProjects.filter(function(p){ return p.selected; });
+  if (!selected.length) { showToast("Sélectionne au moins un projet."); return; }
+  var pushEnabled = $("batchPushNotion").checked;
+  var token = localStorage.getItem("irl_notion_token") || "";
+  var dbId = localStorage.getItem("irl_notion_db_id") || "";
+  if (pushEnabled && (!token || !dbId)) { showToast("Renseigne le token et l'ID de base Notion (section Accès), ou décoche l'envoi automatique."); return; }
+  $("btnBatchRun").disabled = true;
+  $("batchLog").innerHTML = ""; $("batchLog").style.display = "block";
+  logBatch("▶ Lancement du lot — " + selected.length + " projet(s), traités en série.");
+
+  var registreDbId = localStorage.getItem("irl_registre_db_id") || "";
+  var lookupCtx = null, relationReady = false;
+  if (registreDbId) {
+    try {
+      lookupCtx = await prepareRegistreLookup();
+      if (lookupCtx) logBatch("✓ Registre Projets TRL détecté — chaque projet y sera vérifié avant évaluation.");
+      else logBatch("⚠ Base Registre configurée mais aucune colonne Nom/ID CIO reconnue — vérification ignorée.");
+    } catch (lookupErr) {
+      logBatch("⚠ Registre Projets TRL inaccessible (" + (lookupErr.message || String(lookupErr)) + ") — vérification ignorée pour ce lot.");
+    }
+    if (lookupCtx && pushEnabled) {
+      try { relationReady = await ensureRelationToRegistre(registreDbId); }
+      catch (relErr) { logBatch("⚠ Impossible de préparer la propriété « Projet lie (TESP) » — les liens ne seront pas poussés cette fois."); }
+    }
+  }
+
+  var okCount = 0, errCount = 0;
+  for (var n = 0; n < selected.length; n++) {
+    await processOneProject(selected[n], n + 1, selected.length, pushEnabled, lookupCtx, relationReady);
+    if (selected[n].status === "ok") okCount++; else errCount++;
+  }
+  logBatch("■ Lot terminé — " + okCount + " réussi(s), " + errCount + " en erreur, sur " + selected.length + ".");
+  showToast("Lot terminé : " + okCount + "/" + selected.length + " réussis.");
+  $("btnBatchRun").disabled = false;
+}
+
+// ── Init ──
+document.addEventListener("DOMContentLoaded", function(){
+  loadLocal();
+  $("btnRun").addEventListener("click", runEvaluation);
+  $("btnClear").addEventListener("click", function(){
+    $("projName").value = ""; $("projCio").value = ""; $("projText").value = "";
+    S.results = null; S.files = []; renderFileList();
+    $("resultsZone").innerHTML = ""; $("progress").style.display = "none"; $("errBox").style.display = "none";
+  });
+
+  var dz = $("dropZone"), fi = $("fileInput");
+  dz.addEventListener("click", function(){ fi.click(); });
+  fi.addEventListener("change", function(){ handleFiles(fi.files); fi.value = ""; });
+  ["dragenter", "dragover"].forEach(function(evt){
+    dz.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dz.classList.add("dragover"); });
+  });
+  ["dragleave", "drop"].forEach(function(evt){
+    dz.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); dz.classList.remove("dragover"); });
+  });
+  dz.addEventListener("drop", function(e){
+    if (e.dataTransfer && e.dataTransfer.files) handleFiles(e.dataTransfer.files);
+  });
+
+  var bdz = $("batchDropZone"), bfi = $("batchFileInput");
+  bdz.addEventListener("click", function(){ bfi.click(); });
+  bfi.addEventListener("change", function(){ if (bfi.files[0]) handleBddFile(bfi.files[0]); bfi.value = ""; });
+  ["dragenter", "dragover"].forEach(function(evt){
+    bdz.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); bdz.classList.add("dragover"); });
+  });
+  ["dragleave", "drop"].forEach(function(evt){
+    bdz.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); bdz.classList.remove("dragover"); });
+  });
+  bdz.addEventListener("drop", function(e){
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) handleBddFile(e.dataTransfer.files[0]);
+  });
+  $("btnBatchRun").addEventListener("click", runBatch);});
+</script>
