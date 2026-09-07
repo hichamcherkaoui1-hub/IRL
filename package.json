@@ -1,0 +1,14 @@
+{
+  "name": "irl-assessment",
+  "version": "1.0.0",
+  "description": "IRL Assessment (Innovation Readiness Level) — TESP/UM6P · 5 agents dimension + agrégateur, Notion IRL Assessment",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod",
+    "create-notion-db": "node scripts/create-notion-db.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
